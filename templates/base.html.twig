@@ -10,7 +10,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta name="view-transition" content="same-origin" />
         <title>{% block title %}Symfony Demo application{% endblock %}</title>
-        <link rel="alternate" type="application/rss+xml" title="{{ 'rss.title'|trans }}" href="{{ path('blog_rss') }}">
 
         {#
             Those two blocks defines frontend entrypoint for CSS and JavaScript assets
@@ -39,21 +38,6 @@
 
                         <div class="navbar-collapse collapse" id="appNavbar">
                             <ul class="navbar-nav ml-auto">
-                                {% block header_navigation_links %}
-                                    <li class="nav-item{{ _route == 'blog_index' ? ' active' : '' }}">
-                                        <a class="nav-link" href="{{ path('blog_index') }}">
-                                            <i class="fa fa-home" aria-hidden="true"></i> {{ 'menu.homepage'|trans }}
-                                        </a>
-                                    </li>
-                                    {% if is_granted('ROLE_ADMIN') %}
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{ path('admin_post_index') }}">
-                                                <i class="fa fa-lock" aria-hidden="true"></i> {{ 'menu.admin'|trans }}
-                                            </a>
-                                        </li>
-                                    {% endif %}
-                                {% endblock %}
-
                                 <li class="nav-item{{ _route == 'blog_search' ? ' active' : '' }}">
                                     <a class="nav-link" href="{{ path('blog_search') }}"> <i class="fa fa-search"></i> {{ 'menu.search'|trans }}</a>
                                 </li>
